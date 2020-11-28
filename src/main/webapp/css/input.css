@@ -1,0 +1,64 @@
+@charset "UTF-8";
+body {
+	font-size: 12px;
+}
+header {
+	position: relative;
+	width: 100%;
+	height: 36px;
+	text-align: right;
+	line-height: 36px;
+	background-color: rgba(79, 148, 205, 0.3);
+}
+header a {
+	text-decoration: none;
+}
+header a i {
+	font-size: 16px;
+	display: inline-block;
+	margin-right: 24px;
+}
+article {
+	position: relative;
+	width: 500px;
+	margin: 70px auto 0px;
+}
+article #form1 dl {
+	width: 100%;
+	margin: 0px;
+	padding: 20px 0px;
+}
+article #form1 dl dt {
+	width: 100%;
+	padding-bottom: 10px;
+	font-size: 14px;
+	text-indent: 24px;
+	letter-spacing: 2px;
+	border-bottom: solid 1px #CECECE;
+}
+article #form1 dl dd {
+	width: 90%;
+	margin: 25px auto;
+}
+article #form1 dl dd label {
+	width: 100px;
+	margin-right: 5px;
+	font-weight: normal;
+	text-align: right;
+}
+article #form1 dl dd .input {
+	width: 260px;
+}
+article #form1 dl dd.btn-groups {
+	text-align: center;
+}
+article #form1 dl dd.btn-groups input {
+	margin: 0px 10px;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+@charset "UTF-8";
+body {
+	font-size: 12px;
+}
+header {
+	position: relative;
+	width: 500px;
+	margin: 50px auto 0px;
+}
+header #form1 section {
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+header #form1 section p {
+	display: inline-block;
+	width: 360px;
+}
+header #form1 section p input {
+	font-size: 12px;
+	width: 100%;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+header #form1 section input.btn {
+	font-size: 14px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+article {
+	position: relative;
+	width: 1100px;
+	margin: 20px auto 30px;
+}
+article #form2 table tr th {
+	padding: 0px;
+	text-align: center;
+	line-height: 38px;
+}
+article #form2 table tr td {
+	padding: 0px;
+	text-align: center;
+	line-height: 38px;
+}
+article #form2 table tr input[type=checkbox] {
+	margin-bottom: 4px;
+	vertical-align: middle;
+}
+article #form2 table tr td a {
+	color: #222222;
+    text-decoration: none;
+}
+i.edit {
+	color: #00CD00;
+}
+i.remove {
+	color: #EE0000;
+}
+i.grant {
+	color: #6495ED;
+}
+article > section > section {
+	display: inline-block;
+	margin: 0px !important;
+}
+article > section > .btn-groups {
+	width: 40%;
+}
+article > section > .btn-groups button {
+	width: 100px;
+	margin-right: 10px;
+	border-radius: 3px;
+}
+article > section > .page-info {
+	width: 18%;
+	text-align: center;
+}
+article > section > .page-bar {
+	float: right;
+	width: 40%;
+	height: 34px;
+	line-height: 34px;
+	text-align: right;
+}
+
+article > section > .page-bar a {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+	border: solid 1px #CFCFCF;
+	border-radius: 3px;
+	color: #222222;
+	text-decoration: none;
+}
+article > section > .page-bar a:hover {
+	color: #FFFFFF;
+	background-color: #4F94CD;
+	border-color: #FFFFFF;
+}
+article > section > .page-bar a.active {
+	color: #FFFFFF;
+	background-color: #4F94CD;
+	border-color: #FFFFFF;
+}
+
+
+
+
+
+
+
+

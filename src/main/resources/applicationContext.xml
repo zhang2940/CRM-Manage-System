@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:mvc = "http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- 启用注解 -->
+	<context:component-scan base-package="com.crm"></context:component-scan>
+	
+	<!-- 定义数据源Bean -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://60.205.3.145:3306/CRM?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="Zhang@88"></property>
+	</bean>
+	<!-- 定义会话工厂Bean -->
+	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 注入数据源Bean -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 引入Mybatis的配置  -->
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<!-- 指定生成别名的类的包路径 -->
+		<property name="typeAliasesPackage" value="com.crm.database.data"></property>
+		<!-- 配置插件 -->
+		<property name="plugins">
+			<array>
+			    <!-- 分页插件 https://blog.csdn.net/houysx/article/details/80229991 -->
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+						<value>
+						    helperDialect = mysql
+							reasonable = true
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
+	</bean>
+	<!-- 定义映射扫描配置器Bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 注入会话工厂Bean -->
+		<!-- <property name="sqlSessionFactory" ref="sessionFactory"></property> -->
+		<!-- 指定映射接口的包路径 -->
+		<property name="basePackage" value="com.crm.database.mapper"></property>
+	</bean>
+
+
+	<mvc:annotation-driven conversion-service="conversionService"/>
+	<!-- 自定义的日期转换器-->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+	    <property name="converters">
+	        <set>
+	            <bean class="com.crm.utils.DateConvert">
+	                <!-- 自定义日期格式-->
+	                <property name="pattern" value="yyyy-MM-dd"/>
+	            </bean>
+	        </set>
+	    </property>
+	</bean>
+</beans>
